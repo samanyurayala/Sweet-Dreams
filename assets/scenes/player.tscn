@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://ddgntq31whhnk" path="res://assets/art/Player.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://vmj8gmr7fh20" path="res://assets/scripts/player.gd" id="1_s027a"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysycn"]
-radius = 7.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s027a"]
+size = Vector2(13, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s027a"]
 atlas = ExtResource("1_rwm0n")
@@ -153,13 +152,14 @@ animations = [{
 script = ExtResource("1_s027a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ysycn")
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_s027a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(10, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_00pic")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
