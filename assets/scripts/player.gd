@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var player_anim = $AnimatedSprite2D
+@onready var camera = $Camera2D
 
 const SPEED = 25.0
 const JUMP_VELOCITY = -250.0
