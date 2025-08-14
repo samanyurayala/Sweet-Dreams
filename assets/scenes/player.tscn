@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://4817p6dq5c1i"]
+[gd_scene load_steps=30 format=3 uid="uid://4817p6dq5c1i"]
 
 [ext_resource type="Texture2D" uid="uid://ddgntq31whhnk" path="res://assets/art/Player.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://vmj8gmr7fh20" path="res://assets/scripts/player.gd" id="1_s027a"]
+[ext_resource type="Script" uid="uid://spx12pvb0g88" path="res://assets/scripts/camera.gd" id="2_14505"]
+[ext_resource type="FontFile" uid="uid://dkftdwidxuqn" path="res://assets/fonts/BoldPixels1.4.ttf" id="3_4wcc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s027a"]
 size = Vector2(13, 20)
@@ -204,7 +206,18 @@ shape = SubResource("RectangleShape2D_s027a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -14)
-zoom = Vector2(5, 5)
+zoom = Vector2(7.5, 7.5)
+script = ExtResource("2_14505")
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = -74.0
+offset_top = -41.0
+offset_right = 551.0
+offset_bottom = 47.0
+scale = Vector2(0.0437656, 0.0453905)
+theme_override_fonts/font = ExtResource("3_4wcc8")
+theme_override_font_sizes/font_size = 100
+text = "Areas Unlocked: 0"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)

@@ -2,19 +2,25 @@ extends CharacterBody2D
 
 @onready var player_anim = $AnimatedSprite2D
 @onready var camera = $Camera2D
+@onready var label = $Camera2D/Label
 
-var speed = 40.0
+var speed = 200.0
 var jump_velocity = -250.0
 
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and position.x < 4946.673 and not Input.is_action_pressed("Up"):
 		velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_velocity
+		
+	if Input.is_action_pressed("Up") and position.x >= 4946.673:
+		position.y -= 2
+	if Input.is_action_pressed("Down") and position.x >= 4946.73:
+		position.y += 2
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -24,7 +30,7 @@ func _physics_process(delta):
 		speed = 75
 		jump_velocity = -300
 	else:
-		speed = 40
+		speed = 500
 		jump_velocity = -250
 	
 	if direction > 0:
