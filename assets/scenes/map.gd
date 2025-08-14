@@ -1,18 +1,18 @@
 extends Node2D
 
-@export var RANDOM_SHAKE_STRENGTH: float = 30.0
-@export var SHAKE_DECAY_RATE: float = 5.0
+@export var RANDOM_SHAKE_STRENGTH = 30.0
+@export var SHAKE_DECAY_RATE = 5.0
 
 @onready var timer = $Timer
 @onready var player = $CharacterBody2D
 @onready var random = RandomNumberGenerator.new()
 @onready var button = $Button
 
-var shake_strength: float = 0.0
+var shake_strength = 0.0
 
 func _ready():
 	random.randomize()
-	timer.wait_time = random.randf_range(15, 45)
+	timer.wait_time = random.randf_range(15, 25)
 	timer.start()
 
 func _on_timer_timeout():

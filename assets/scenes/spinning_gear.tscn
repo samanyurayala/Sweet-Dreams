@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk4oixwvasywf"]
+
+[ext_resource type="Texture2D" uid="uid://kp3ok6lhiycg" path="res://assets/art/spinninggearspritesheet.png" id="1_kcv1m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doxbi"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb7jm"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo2pm"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8lht"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hicog"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uu7b"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exe1g"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5scof"]
+atlas = ExtResource("1_kcv1m")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkkak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doxbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb7jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo2pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8lht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hicog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uu7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exe1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5scof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mkkak")
+autoplay = "default"
