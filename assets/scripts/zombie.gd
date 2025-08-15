@@ -29,6 +29,4 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Bullet"):
-		print("successful")
-		position.x = 0
-		position.y = 1500
+		queue_free()

@@ -3,12 +3,14 @@ extends CharacterBody2D
 @onready var player_anim = $AnimatedSprite2D
 @onready var camera = $Camera2D
 @onready var label = $Camera2D/Label
+@onready var label_2 = $Camera2D/Label2
 
-var speed = 200.0
+var speed = 40.0
 var jump_velocity = -250.0
 var player_direction
 
 var reset = false
+var player_ate_potion = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -34,6 +36,9 @@ func _physics_process(delta):
 	else:
 		speed = 500
 		jump_velocity = -250
+		
+	if player_ate_potion:
+		jump_velocity = -400
 	
 	if direction > 0:
 		player_anim.flip_h = false
@@ -66,3 +71,6 @@ func _animations():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy"):
 		reset = true
+	if area.is_in_group("Potion"):
+		player_ate_potion = true
+		print("Test")

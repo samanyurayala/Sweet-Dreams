@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6sanb17fduxo"]
+
+[ext_resource type="Script" uid="uid://bg74vhf3pat11" path="res://assets/scenes/potion.gd" id="1_a1we4"]
+[ext_resource type="Texture2D" uid="uid://8snkqh848hpj" path="res://assets/art/potion.png" id="1_b7iwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1we4"]
+size = Vector2(10, 14)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_a1we4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b7iwu")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Potion"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_a1we4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

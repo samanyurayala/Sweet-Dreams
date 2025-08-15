@@ -219,6 +219,16 @@ theme_override_fonts/font = ExtResource("3_4wcc8")
 theme_override_font_sizes/font_size = 100
 text = "Areas Unlocked: 0"
 
+[node name="Label2" type="Label" parent="Camera2D"]
+offset_left = 60.0
+offset_top = -41.0
+offset_right = 792.0
+offset_bottom = 47.0
+scale = Vector2(0.0437656, 0.0453905)
+theme_override_fonts/font = ExtResource("3_4wcc8")
+theme_override_font_sizes/font_size = 100
+text = "Ammo: 6"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_00pic")

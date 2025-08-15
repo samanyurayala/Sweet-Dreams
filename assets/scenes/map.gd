@@ -12,6 +12,7 @@ extends Node2D
 var shake_strength = 0.0
 
 var areas_unlocked = 0
+var ammo = 6
 
 var entered_zone_1 = false
 var entered_zone_2 = false
@@ -32,7 +33,7 @@ func apply_shake():
 	shake_strength = RANDOM_SHAKE_STRENGTH
 
 func _process(delta):
-	if player.position.y >= 1000 or player.reset:
+	if player.position.y >= 1000:
 		_reset()
 		player.reset = false
 		
@@ -47,14 +48,15 @@ func get_random_offset():
 	)
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Shoot") and ammo > 0:
+		ammo -= 1
 		if player.player_anim.flip_h == false:
 			bullet.direction = 1
 		if player.player_anim.flip_h == true:
 			bullet.direction = -1
 		bullet.global_transform.origin = player.global_transform.origin
-		print("test")
 	player.label.text = "Areas Unlocked: " + str(areas_unlocked) + "/5"
+	player.label_2.text = "Ammo: " + str(ammo)
 	if player.position.x >= 100 and not entered_zone_1:
 		entered_zone_1 = true
 		areas_unlocked += 1
