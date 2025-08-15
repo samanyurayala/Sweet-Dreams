@@ -6,7 +6,9 @@ extends CharacterBody2D
 
 var speed = 200.0
 var jump_velocity = -250.0
+var player_direction
 
+var reset = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -59,3 +61,8 @@ func _animations():
 		player_anim.play("run_jump")
 	if velocity.x == 0 and velocity.y != 0:
 		player_anim.play("jump")
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Enemy"):
+		reset = true

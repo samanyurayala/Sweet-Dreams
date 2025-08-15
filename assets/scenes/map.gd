@@ -4,9 +4,10 @@ extends Node2D
 @export var SHAKE_DECAY_RATE = 5.0
 
 @onready var timer = $Timer
-@onready var player = $CharacterBody2D
+@onready var player = $player
 @onready var random = RandomNumberGenerator.new()
 @onready var button = $Button
+@onready var bullet = $bullet
 
 var shake_strength = 0.0
 
@@ -31,7 +32,11 @@ func apply_shake():
 	shake_strength = RANDOM_SHAKE_STRENGTH
 
 func _process(delta):
-	print(player.global_transform.origin)
+	if player.position.y >= 1000 or player.reset:
+		_reset()
+		player.reset = false
+		
+	#print(player.global_transform.origin)
 	shake_strength = lerp(shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
 	player.camera.offset = get_random_offset()
 
@@ -42,6 +47,13 @@ func get_random_offset():
 	)
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("Shoot"):
+		if player.player_anim.flip_h == false:
+			bullet.direction = 1
+		if player.player_anim.flip_h == true:
+			bullet.direction = -1
+		bullet.global_transform.origin = player.global_transform.origin
+		print("test")
 	player.label.text = "Areas Unlocked: " + str(areas_unlocked) + "/5"
 	if player.position.x >= 100 and not entered_zone_1:
 		entered_zone_1 = true
@@ -55,3 +67,6 @@ func _physics_process(delta):
 	if player.position.x >= 4550 and not entered_zone_4:
 		entered_zone_4 = true
 		areas_unlocked += 1
+
+func _reset():
+	get_tree().reload_current_scene()
