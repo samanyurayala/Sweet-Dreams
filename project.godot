@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Sweet Dreams"
+run/main_scene="uid://b23e6vkx2p2ug"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

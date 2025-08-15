@@ -2,11 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://ddgntq31whhnk" path="res://assets/art/Player.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://vmj8gmr7fh20" path="res://assets/scripts/player.gd" id="1_s027a"]
-[ext_resource type="Script" uid="uid://spx12pvb0g88" path="res://assets/scripts/camera.gd" id="2_14505"]
 [ext_resource type="FontFile" uid="uid://dkftdwidxuqn" path="res://assets/fonts/BoldPixels1.4.ttf" id="3_4wcc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s027a"]
 size = Vector2(13, 20)
+
+[sub_resource type="GDScript" id="GDScript_14505"]
+script/source = "extends Camera2D
+
+var current_viewport_size
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s027a"]
 atlas = ExtResource("1_rwm0n")
@@ -207,7 +221,7 @@ shape = SubResource("RectangleShape2D_s027a")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -14)
 zoom = Vector2(7.5, 7.5)
-script = ExtResource("2_14505")
+script = SubResource("GDScript_14505")
 
 [node name="Label" type="Label" parent="Camera2D"]
 offset_left = -74.0
@@ -228,6 +242,42 @@ scale = Vector2(0.0437656, 0.0453905)
 theme_override_fonts/font = ExtResource("3_4wcc8")
 theme_override_font_sizes/font_size = 100
 text = "Ammo: 6"
+
+[node name="Label3" type="Label" parent="Camera2D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 1769.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0437656, 0.0453905)
+theme_override_fonts/font = ExtResource("3_4wcc8")
+theme_override_font_sizes/font_size = 100
+text = "You found a potion! You can now jump higher"
+
+[node name="Label4" type="Label" parent="Camera2D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 850.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0437656, 0.0453905)
+theme_override_fonts/font = ExtResource("3_4wcc8")
+theme_override_font_sizes/font_size = 100
+text = "You found a new area!"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)

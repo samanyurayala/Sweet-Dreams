@@ -1,6 +1,5 @@
-extends Camera2D
+extends Control
 
-var current_viewport_size
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,6 +8,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	current_viewport_size = get_viewport().size
-	zoom.x = (current_viewport_size.y / 648) * 7.5
-	zoom.y = (current_viewport_size.y / 648) * 7.5
+	pass
+
+
+func _on_button_2_pressed():
+	get_tree().quit()
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://assets/scenes/cutscene.tscn")

@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://b23e6vkx2p2ug"]
+
+[ext_resource type="FontFile" uid="uid://dkftdwidxuqn" path="res://assets/fonts/BoldPixels1.4.ttf" id="1_ccmni"]
+[ext_resource type="Script" uid="uid://qdghajkue1ce" path="res://assets/scripts/mainmenu.gd" id="1_jm4xt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jm4xt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -247.5
+offset_right = 422.0
+offset_bottom = -114.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ccmni")
+theme_override_font_sizes/font_size = 150
+text = "Sweet Dreams"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -37.5
+offset_right = 74.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.308769, 0.308769, 0.308769, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ccmni")
+theme_override_font_sizes/font_size = 75
+text = "Play"
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = 46.5
+offset_right = 74.5
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ccmni")
+theme_override_font_sizes/font_size = 75
+text = "Quit"
+flat = true
+
+[node name="Button3" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.5
+offset_top = 127.5
+offset_right = 123.5
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ccmni")
+theme_override_font_sizes/font_size = 75
+text = "Credits"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

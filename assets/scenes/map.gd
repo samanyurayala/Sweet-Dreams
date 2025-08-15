@@ -33,7 +33,7 @@ func apply_shake():
 	shake_strength = RANDOM_SHAKE_STRENGTH
 
 func _process(delta):
-	if player.position.y >= 1000:
+	if player.position.y >= 1000 or player.reset:
 		_reset()
 		player.reset = false
 		
@@ -60,15 +60,34 @@ func _physics_process(delta):
 	if player.position.x >= 100 and not entered_zone_1:
 		entered_zone_1 = true
 		areas_unlocked += 1
+		player.label_4.visible = true
+		await get_tree().create_timer(2).timeout
+		player.label_4.visible = false
 	if player.position.x >= 1350 and not entered_zone_2:
 		entered_zone_2 = true
 		areas_unlocked += 1
+		player.label_4.visible = true
+		await get_tree().create_timer(2).timeout
+		player.label_4.visible = false
 	if player.position.x >= 2690 and not entered_zone_3:
 		entered_zone_3 = true
 		areas_unlocked += 1
+		player.label_4.visible = true
+		await get_tree().create_timer(2).timeout
+		player.label_4.visible = false
 	if player.position.x >= 4550 and not entered_zone_4:
 		entered_zone_4 = true
 		areas_unlocked += 1
+		player.label_4.visible = true
+		await get_tree().create_timer(2).timeout
+		player.label_4.visible = false
+	if player.position.x >= 2590 and player.position.x <= 2630 and player.position.y <= 435 and not entered_zone_5:
+		entered_zone_5 = true
+		areas_unlocked += 1
+		player.label_4.visible = true
+		await get_tree().create_timer(2).timeout
+		player.label_4.visible = false
+		
 
 func _reset():
 	get_tree().reload_current_scene()

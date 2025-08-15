@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 @onready var label = $Camera2D/Label
 @onready var label_2 = $Camera2D/Label2
+@onready var label_3 = $Camera2D/Label3
+@onready var label_4 = $Camera2D/Label4
 
 var speed = 40.0
 var jump_velocity = -250.0
@@ -34,7 +36,7 @@ func _physics_process(delta):
 		speed = 75
 		jump_velocity = -300
 	else:
-		speed = 500
+		speed = 40
 		jump_velocity = -250
 		
 	if player_ate_potion:
@@ -73,4 +75,7 @@ func _on_area_2d_area_entered(area):
 		reset = true
 	if area.is_in_group("Potion"):
 		player_ate_potion = true
-		print("Test")
+		label_3.visible = true
+		await get_tree().create_timer(2).timeout
+		label_3.visible = false
+		
