@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var label_2 = $Camera2D/Label2
 @onready var label_3 = $Camera2D/Label3
 @onready var label_4 = $Camera2D/Label4
+@onready var footsteps = $Footsteps
 
 var speed = 40.0
 var jump_velocity = -250.0
@@ -50,6 +51,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * speed
 	else:
+		footsteps.play()
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()

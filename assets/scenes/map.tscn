@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://scbtakqj6pkr"]
+[gd_scene load_steps=24 format=4 uid="uid://scbtakqj6pkr"]
 
 [ext_resource type="Texture2D" uid="uid://b3h1hcvmpybmg" path="res://assets/art/tilemap.png" id="1_bnucp"]
 [ext_resource type="Script" uid="uid://tbt3b5rckusb" path="res://assets/scenes/map.gd" id="1_fyu4c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cs6cxdcxae8ty" path="res://assets/art/atlas_floor-16x16.png" id="7_g2dpn"]
 [ext_resource type="PackedScene" uid="uid://bj37a73ihobth" path="res://assets/scenes/zombie.tscn" id="8_g2dpn"]
 [ext_resource type="PackedScene" uid="uid://tm346svwe50i" path="res://assets/scenes/bullet.tscn" id="9_jry1f"]
+[ext_resource type="AudioStream" uid="uid://cqxa4oa583pur" path="res://assets/sounds/shoot.mp3" id="11_1vs06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45j4w"]
 texture = ExtResource("1_bnucp")
@@ -992,5 +993,9 @@ position = Vector2(67, 121)
 
 [node name="bullet" parent="." instance=ExtResource("9_jry1f")]
 position = Vector2(20, -54)
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_1vs06")
+volume_db = 2.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

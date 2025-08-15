@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://4817p6dq5c1i"]
+[gd_scene load_steps=31 format=3 uid="uid://4817p6dq5c1i"]
 
 [ext_resource type="Texture2D" uid="uid://ddgntq31whhnk" path="res://assets/art/Player.png" id="1_rwm0n"]
 [ext_resource type="Script" uid="uid://vmj8gmr7fh20" path="res://assets/scripts/player.gd" id="1_s027a"]
 [ext_resource type="FontFile" uid="uid://dkftdwidxuqn" path="res://assets/fonts/BoldPixels1.4.ttf" id="3_4wcc8"]
+[ext_resource type="AudioStream" uid="uid://bvl8e7j8ndckk" path="res://assets/sounds/footsteps.mp3" id="4_4wcc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s027a"]
 size = Vector2(13, 20)
@@ -290,5 +291,8 @@ autoplay = "idle"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_s027a")
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4wcc8")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

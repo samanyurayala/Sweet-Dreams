@@ -8,6 +8,7 @@ extends Node2D
 @onready var random = RandomNumberGenerator.new()
 @onready var button = $Button
 @onready var bullet = $bullet
+@onready var shoot = $shoot
 
 var shake_strength = 0.0
 
@@ -49,6 +50,7 @@ func get_random_offset():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("Shoot") and ammo > 0:
+		shoot.play()
 		ammo -= 1
 		if player.player_anim.flip_h == false:
 			bullet.direction = 1
